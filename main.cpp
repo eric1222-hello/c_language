@@ -1,45 +1,45 @@
 #include <iostream>
-#include <math.h>
-using namespace std;
 
-int primeday(int date)
-{
-    int flag = 1;
-    int i;
-    int s = int(pow(10,8));
-    while((date != 0) && (flag ==1))
-    {
-        for(i=2;i<sqrt(date);i++)
-        {
-            if(date % i == 0)
-            {
-                flag = 0;
-                break;
-            }
-        }
-        date = date % s;
-        s = s / 10;
-    }
-    if(flag==1)
-        return 1;
-    else
-        return 0;
-}
+using namespace std;
 
 int main()
 {
-    int n;
-    while(cin>>n)
+    int b,p; //b為最少人流之公車站牌，p為示共有多少人要搭乘此公車
+    while(cin>>b>>p)
     {
-        int num,i,j,ans;
-        for(i=0;i<n;i++)
+        int i,j,n,m,tmp;
+        int num[1001] = {0};
+        for(i=1;i<=p;i++)
         {
-            cin>>num;
-            ans = primeday(num);
-            if(ans)
-                cout<<num<<" is a Prime Day!"<<endl;
-            else
-                cout<<num<<" isn’t a Prime Day!"<<endl;
+            cin>>n>>m;
+            if(n>m)
+            {
+                tmp = n;
+                n = m;
+                m = tmp;
+            }
+            for(j=n;j<=m;j++)
+                num[j]+=1;
         }
+        int max_index,min_index;
+        int maxi = 1;
+        int mini = 1000;
+        for(i=1;i<=b;i++)
+        {
+            if(mini > num[i])
+            {
+                mini = num[i];
+                min_index = i;
+            }
+            if(maxi <= num[i])
+            {
+                maxi = num[i];
+                max_index = i;
+            }
+        }
+
+        cout<<min_index<<" "<<max_index<<endl;
+
+
     }
 }
