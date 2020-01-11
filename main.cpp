@@ -1,33 +1,45 @@
 #include <iostream>
-
+#include <math.h>
 using namespace std;
 
-int fib_loop(int n)
+int primeday(int date)
 {
-    int a = 1;
-    int b =1;
-    int c;
-    if(n==1 || n==2)
+    int flag = 1;
+    int i;
+    int s = int(pow(10,8));
+    while((date != 0) && (flag ==1))
+    {
+        for(i=2;i<sqrt(date);i++)
+        {
+            if(date % i == 0)
+            {
+                flag = 0;
+                break;
+            }
+        }
+        date = date % s;
+        s = s / 10;
+    }
+    if(flag==1)
         return 1;
     else
-    {
-        for(int i=3;i<=n;i++)
-        {
-            c = a + b;
-            a = b;
-            b = c;
-        }
-        return c;
-    }
+        return 0;
 }
 
 int main()
 {
-    int m;
-    while(cin>>m)
+    int n;
+    while(cin>>n)
     {
-        int num1 = fib_loop(m);
-        int num2 = fib_loop(m+1);
-        cout<<num1<<":"<<num2<<endl;
+        int num,i,j,ans;
+        for(i=0;i<n;i++)
+        {
+            cin>>num;
+            ans = primeday(num);
+            if(ans)
+                cout<<num<<" is a Prime Day!"<<endl;
+            else
+                cout<<num<<" isn¡¦t a Prime Day!"<<endl;
+        }
     }
 }
