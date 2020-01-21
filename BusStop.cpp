@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    int b,p; //b¬°³Ì¤Ö¤H¬y¤§¤½¨®¯¸µP¡Ap¬°¥Ü¦@¦³¦h¤Ö¤H­n·f­¼¦¹¤½¨®
+    int b,p; //bç‚ºæœ€å°‘äººæµä¹‹å…¬è»Šç«™ç‰Œï¼Œpç‚ºç¤ºå…±æœ‰å¤šå°‘äººè¦æ­ä¹˜æ­¤å…¬è»Š
     while(cin>>b>>p)
     {
         int i,j,n,m,tmp;
