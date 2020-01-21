@@ -39,7 +39,7 @@ int main()
             if(ans)
                 cout<<num<<" is a Prime Day!"<<endl;
             else
-                cout<<num<<" isn¡¦t a Prime Day!"<<endl;
+                cout<<num<<" isnÂ¡Â¦t a Prime Day!"<<endl;
         }
     }
 }
