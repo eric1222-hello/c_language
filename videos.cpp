@@ -5,11 +5,11 @@ using namespace std;
 
 struct vid //rec =  p * (w /l ) * r
 {
-	string s; //¼v¤ù¦WºÙ 
-	//int p; //Æ[¬İ¤H¼Æ 
-	//int l; //¼v¤ùªø«× 
-	//int w; //¥­§¡Æ[¬İ®É¶¡ 
-	//int r;  //¬ÛÃö«Y¼Æ
+	string s; //å½±ç‰‡åç¨± 
+	//int p; //è§€çœ‹äººæ•¸ 
+	//int l; //å½±ç‰‡é•·åº¦ 
+	//int w; //å¹³å‡è§€çœ‹æ™‚é–“ 
+	//int r;  //ç›¸é—œä¿‚æ•¸
 	double rec; 
 }name[1000];
 
