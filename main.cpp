@@ -1,52 +1,45 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
+int n;
+string a[101];
+string output;
+int x;
+
+void greedy();
+
 int main()
 {
-    int n,t;
-    while(cin>>n>>t)
+    while(cin>>n)
     {
-        int i,j,num[t];
-        int ans[t] = {0};
-
-        for(i=0;i<n;i++)  //這個超級重要的啦!!
+        for(int i=0; i<n; i++)
         {
-            for(j=0;j<t;j++)
-            {
-                cin>>num[j];
+            cin>>x;
+            a[i]=to_string(x);
+        }
+        greedy();
+        cout<<output<<endl;
+    }
+    return 0;
+}
 
-                if(num[j] == 1)
-                    ans[j] += 1;
+void greedy()
+{
+    for(int i=0; i<n; i++)
+    {
+        for(int j=i; j<n; j++)
+        {
+            if(a[i]+a[j]<a[j]+a[i])
+            {
+                swap(a[i],a[j]);
             }
         }
-
-        cout<<"AND: ";
-        for(i=0;i<t;i++)
-        {
-            if(ans[i] == n)
-                cout<<"1 ";
-            else
-                cout<<"0 ";
-        }
-        cout<<endl;
-        cout<<" OR: ";
-        for(i=0;i<t;i++)
-        {
-            if(ans[i] > 0)
-                cout<<"1 ";
-            else
-                cout<<"0 ";
-        }
-        cout<<endl;
-        cout<<"XOR: ";
-        for(i=0;i<t;i++)
-        {
-            if(ans[i] % 2 == 1)
-                cout<<"1 ";
-            else
-                cout<<"0 ";
-        }
-        cout<<endl;
+    }
+    output=a[0];
+    for(int i=1; i<n; i++)
+    {
+        output+=a[i];
     }
 }
